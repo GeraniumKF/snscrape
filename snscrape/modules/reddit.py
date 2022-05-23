@@ -28,6 +28,9 @@ class Submission(snscrape.base.Item):
 	title: str
 	url: str
 
+	def date(self) -> datetime.datetime:
+		return self.created
+
 	def __str__(self):
 		return self.url
 
@@ -41,6 +44,9 @@ class Comment(snscrape.base.Item):
 	parentId: typing.Optional[str]
 	subreddit: typing.Optional[str]
 	url: str
+
+	def date(self) -> datetime.datetime:
+		return self.created
 
 	def __str__(self):
 		return self.url
